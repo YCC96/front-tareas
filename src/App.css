@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.container-tareas {
+  margin-top: 50px;
+}
+
+.avatar {
+  width: 50px;
+}
+
+.cursor {
+  cursor: pointer;
+}

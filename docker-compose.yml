@@ -1,0 +1,11 @@
+version: "3"
+services: 
+    frontend:
+        container_name: front-tareas
+        restart: always
+        build: .
+        command: npm start
+        ports:
+            - "3000:3000"
+        volumes: 
+            - .:/app
