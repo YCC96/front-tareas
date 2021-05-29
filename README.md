@@ -26,3 +26,15 @@ cd front-tareas
 docker-compose up --build
 url: http://localhost:3000/
 ```
+
+Script PYTHON
+===
+
+Requerimientos:
+- Tener instalado python
+
+Ejecutar los siguientes comandos
+```
+cd front-tareas
+python crear-tarea.py
+```
