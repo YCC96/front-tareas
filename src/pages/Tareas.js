@@ -221,52 +221,54 @@ function Tareas() {
                     </svg>
                 </button>
                 
-                <table className="table table-striped">
-                    <thead>
-                        <tr className="text-center">
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Duración estimada (min)</th>
-                            <th scope="col">Tiempo registrado (min/sec)</th>
-                            <th scope="col">Tiempo</th>
-                            <th scope="col">Estatus</th>
-                            <th width="200px" scope="col">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        {
-                        list?.map(item => (
-                            <tr key={item.id} className="text-center">
-                                <td>{item.descripcion}</td>
-                                <td>{item.duracion}</td>
-                                <td>{item.tiempoRegistrado}</td>
-                                <td>{item.tiempo}</td>
-                                <td>{item.estatus}</td>
-                                <td>
-                                    <button className="btn btn-outline-info" style={{marginRight: "10px"}} data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onClick={(e) => openModalEditar(item)} disabled={item.estatus==='Completada'}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
-                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                        <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                        </svg>
-                                    </button>
-                                    <button className="btn btn-outline-success" style={{marginRight: "10px"}} data-bs-toggle="tooltip" data-bs-placement="top" title="Finalizar" onClick={(e) => openModalFinalizar(item)} disabled={item.estatus==='Completada'}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-square" viewBox="0 0 16 16">
-                                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                                        <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z"/>
-                                        </svg>
-                                    </button>
-                                    <button className="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar" onClick={(e) => openModalEliminar(item)}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
-                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                        <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                                        </svg>
-                                    </button>
-                                </td>
+                <div className="table-responsive">
+                    <table className="table table-striped">
+                        <thead>
+                            <tr className="text-center">
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Duración estimada (min)</th>
+                                <th scope="col">Tiempo registrado (min/sec)</th>
+                                <th scope="col">Tiempo</th>
+                                <th scope="col">Estatus</th>
+                                <th width="200px" scope="col">Acciones</th>
                             </tr>
-                        ))
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+
+                            {
+                            list?.map(item => (
+                                <tr key={item.id} className="text-center">
+                                    <td>{item.descripcion}</td>
+                                    <td>{item.duracion}</td>
+                                    <td>{item.tiempoRegistrado}</td>
+                                    <td>{item.tiempo}</td>
+                                    <td>{item.estatus}</td>
+                                    <td>
+                                        <button className="btn btn-outline-info" style={{marginRight: "10px"}} data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" onClick={(e) => openModalEditar(item)} disabled={item.estatus==='Completada'}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                            <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                            </svg>
+                                        </button>
+                                        <button className="btn btn-outline-success" style={{marginRight: "10px"}} data-bs-toggle="tooltip" data-bs-placement="top" title="Finalizar" onClick={(e) => openModalFinalizar(item)} disabled={item.estatus==='Completada'}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-square" viewBox="0 0 16 16">
+                                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                            <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z"/>
+                                            </svg>
+                                        </button>
+                                        <button className="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar" onClick={(e) => openModalEliminar(item)}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
+                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                            <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                            </svg>
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             {
